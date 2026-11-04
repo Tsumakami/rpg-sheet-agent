@@ -1,0 +1,19 @@
+skills:
+  - {id: acrobatics, name: Acrobacia, attribute: dex}
+  - {id: animal_handling, name: Lidar com Animais, attribute: wis}
+  - {id: arcana, name: Arcanismo, attribute: int}
+  - {id: athletics, name: Atletismo, attribute: str}
+  - {id: deception, name: Enganação, attribute: cha}
+  - {id: history, name: História, attribute: int}
+  - {id: insight, name: Intuição, attribute: wis}
+  - {id: intimidation, name: Intimidação, attribute: cha}
+  - {id: investigation, name: Investigação, attribute: int}
+  - {id: medicine, name: Medicina, attribute: wis}
+  - {id: nature, name: Natureza, attribute: int}
+  - {id: perception, name: Percepção, attribute: wis}
+  - {id: performance, name: Atuação, attribute: cha}
+  - {id: persuasion, name: Persuasão, attribute: cha}
+  - {id: religion, name: Religião, attribute: int}
+  - {id: sleight_of_hand, name: Prestidigitação, attribute: dex}
+  - {id: stealth, name: Furtividade, attribute: dex}
+  - {id: survival, name: Sobrevivência, attribute: wis}

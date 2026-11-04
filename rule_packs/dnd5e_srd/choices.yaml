@@ -1,0 +1,193 @@
+choices:
+  - id: race
+    name: Raça
+    options:
+      - id: dwarf
+        name: Anão
+        description: Resistente e tradicional, mestre em pedra e metal.
+        attribute_bonuses: {con: 2}
+        data: {speed: 25}
+      - id: elf
+        name: Elfo
+        description: Ágil e longevo, com sentidos apurados.
+        attribute_bonuses: {dex: 2}
+        data: {speed: 30}
+        granted_skills: [perception] # traço "Sentidos Aguçados"
+      - id: halfling
+        name: Halfling
+        description: Pequeno, sortudo e discreto.
+        attribute_bonuses: {dex: 2}
+        data: {speed: 25}
+      - id: human
+        name: Humano
+        description: Versátil e ambicioso.
+        attribute_bonuses: {str: 1, dex: 1, con: 1, int: 1, wis: 1, cha: 1}
+        data: {speed: 30}
+      - id: dragonborn
+        name: Draconato
+        description: Orgulhoso e forte, herdeiro do poder elemental dos dragões.
+        attribute_bonuses: {str: 2, cha: 1}
+        data: {speed: 30}
+      - id: gnome
+        name: Gnomo
+        description: Dotado de curiosidade vibrante, engenhosidade e afinidade mágica.
+        attribute_bonuses: {int: 2}
+        data: {speed: 25}
+      - id: half_elf
+        name: Meio-Elfo
+        description: Combina a versatilidade humana com a graciosidade élfica.
+        attribute_bonuses: {cha: 2, dex: 1, con: 1}
+        data: {speed: 30}
+      - id: half_orc
+        name: Meio-Orc
+        description: Guerreiro de tenacidade inabalável e força física notável.
+        attribute_bonuses: {str: 2, con: 1}
+        data: {speed: 30}
+        granted_skills: [intimidation] # Traço racial: Ameaçador
+      - id: tiefling
+        name: Tiefling
+        description: Detentor de uma herança infernal que concede resistência e magia.
+        attribute_bonuses: {cha: 2, int: 1}
+        data: {speed: 30}
+
+  - id: class
+    name: Classe
+    options:
+      - id: fighter
+        name: Guerreiro
+        description: Mestre das armas e da armadura.
+        data: {hit_die: 10, skill_choices: 2}
+        allowed_skills: [acrobatics, animal_handling, athletics, history, insight, intimidation, perception, survival]
+        grants: {saving_throws: [str, con]}
+        priority_attributes: [str, con, dex, wis, cha, int]
+      - id: wizard
+        name: Mago
+        description: Estudioso das artes arcanas.
+        data: {hit_die: 6, skill_choices: 2}
+        allowed_skills: [arcana, history, insight, investigation, medicine, religion]
+        grants: {saving_throws: [int, wis]}
+        priority_attributes: [int, con, dex, wis, cha, str]
+      - id: rogue
+        name: Ladino
+        description: Especialista em furtividade e precisão.
+        data: {hit_die: 8, skill_choices: 4}
+        allowed_skills: [acrobatics, athletics, deception, insight, intimidation, investigation, perception, performance, persuasion, sleight_of_hand, stealth]
+        grants: {saving_throws: [dex, int]}
+        priority_attributes: [dex, int, cha, con, wis, str]
+      - id: cleric
+        name: Clérigo
+        description: Canal do poder de uma divindade.
+        data: {hit_die: 8, skill_choices: 2}
+        allowed_skills: [history, insight, medicine, persuasion, religion]
+        grants: {saving_throws: [wis, cha]}
+        priority_attributes: [wis, con, str, cha, dex, int]
+      - id: barbarian
+        name: Bárbaro
+        description: Guerreiro feros impulsionado por fúria primordial.
+        data: {hit_die: 12, skill_choices: 2}
+        allowed_skills: [animal_handling, athletics, intimidation, nature, perception, survival]
+        grants: {saving_throws: [str, con]}
+        priority_attributes: [str, con, dex, wis, cha, int]
+      - id: bard
+        name: Bardo
+        description: Mestre da magia vocal e da inspiração artística.
+        data: {hit_die: 8, skill_choices: 3}
+        allowed_skills: [acrobatics, animal_handling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleight_of_hand, stealth, survival]
+        grants: {saving_throws: [dex, cha]}
+        priority_attributes: [cha, dex, con, wis, int, str]
+      - id: druid
+        name: Druida
+        description: Sacerdote da natureza capaz de moldar formas selvagens.
+        data: {hit_die: 8, skill_choices: 2}
+        allowed_skills: [animal_handling, arcana, insight, medicine, nature, perception, religion, survival]
+        grants: {saving_throws: [int, wis]}
+        priority_attributes: [wis, con, dex, int, str, cha]
+      - id: monk
+        name: Monge
+        description: Praticante das artes marciais alimentado pela energia Ki.
+        data: {hit_die: 8, skill_choices: 2}
+        allowed_skills: [acrobatics, athletics, history, insight, religion, stealth]
+        grants: {saving_throws: [str, dex]}
+        priority_attributes: [dex, wis, con, str, int, cha]
+      - id: paladin
+        name: Paladino
+        description: Guerreiro sagrado vinculado a um juramento solene.
+        data: {hit_die: 10, skill_choices: 2}
+        allowed_skills: [athletics, insight, intimidation, medicine, persuasion, religion]
+        grants: {saving_throws: [wis, cha]}
+        priority_attributes: [str, cha, con, wis, dex, int]
+      - id: ranger
+        name: Patrulheiro
+        description: Caçador e rastreador especialista nas fronteiras selvagens.
+        data: {hit_die: 10, skill_choices: 3}
+        allowed_skills: [animal_handling, athletics, insight, investigation, nature, perception, stealth, survival]
+        grants: {saving_throws: [str, dex]}
+        priority_attributes: [dex, wis, con, str, int, cha]
+      - id: sorcerer
+        name: Feiticeiro
+        description: Conjurador cuja magia deriva de uma linhagem inata.
+        data: {hit_die: 6, skill_choices: 2}
+        allowed_skills: [arcana, deception, insight, intimidation, persuasion, religion]
+        grants: {saving_throws: [con, cha]}
+        priority_attributes: [cha, con, dex, wis, int, str]
+      - id: warlock
+        name: Bruxo
+        description: Conjurador que obteve conhecimento mediante um pacto patronal.
+        data: {hit_die: 8, skill_choices: 2}
+        allowed_skills: [arcana, deception, history, intimidation, investigation, nature, religion]
+        grants: {saving_throws: [wis, cha]}
+        priority_attributes: [cha, con, dex, wis, int, str]
+
+  # O SRD 5.1 inclui apenas UM antecedente (Acólito). Veja docs/rule-packs.md para adicionar
+  # outros a partir dos seus próprios livros.
+  - id: antecedent
+    name: Antecedente
+    options:
+      - id: acolyte
+        name: Acólito
+        description: Serviu em um templo e conhece rituais e tradições sagradas.
+        granted_skills: [insight, religion]
+      - id: criminal
+        name: Criminoso
+        description: Possui histórico no submundo e familiaridade com a ilegalidade.
+        granted_skills: [deception, stealth]
+      - id: folk_hero
+        name: Herói do Povo
+        description: Defensor das pessoas comuns contra monstros e tiranos.
+        granted_skills: [animal_handling, survival]
+      - id: noble
+        name: Nobre
+        description: Nascido na aristocracia, versado em diplomacia e privilégios.
+        granted_skills: [history, persuasion]
+      - id: sage
+        name: Sábio
+        description: Erudito que dedicou anos ao estudo de manuscritos e mistérios.
+        granted_skills: [arcana, history]
+      - id: soldier
+        name: Soldado
+        description: Treinado na disciplina militar e táticas de campo de batalha.
+        granted_skills: [athletics, intimidation]
+      - id: entertainer
+        name: Artista
+        description: Mestre em cativar multidões por meio da música e da atuação.
+        granted_skills: [acrobatics, performance]
+      - id: guild_artisan
+        name: Artesão de Guilda
+        description: Membro estabelecido de uma corporação de ofício especializada.
+        granted_skills: [insight, persuasion]
+      - id: hermit
+        name: Eremita
+        description: Viveu em isolamento contemplativo buscando grandes verdades.
+        granted_skills: [medicine, religion]
+      - id: outlander
+        name: Forasteiro
+        description: Criado em terras selvagens, acostumado com a sobrevivência bruta.
+        granted_skills: [athletics, survival]
+      - id: sailor
+        name: Marinheiro
+        description: Navegador experiente em enfrentar oceanos e intempéries.
+        granted_skills: [athletics, perception]
+      - id: urchin
+        name: Pivete
+        description: Sobreviveu sozinho nas ruas das grandes cidades graças à astúcia.
+        granted_skills: [sleight_of_hand, stealth]

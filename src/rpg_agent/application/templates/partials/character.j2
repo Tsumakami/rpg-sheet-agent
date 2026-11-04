@@ -1,0 +1,9 @@
+Ficha atual:
+- Conceito: {{ concept or "(ainda não definido)" }}
+{% for c in chosen %}
+- {{ c.choice }}: {{ c.option }}
+{% endfor %}
+{% if attributes %}
+- Atributos: {% for a in attributes %}{{ a.name }} {{ a.value }}{{ ", " if not loop.last else "" }}{% endfor %}
+
+{% endif %}

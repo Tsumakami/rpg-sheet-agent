@@ -1,0 +1,39 @@
+steps:
+  - id: concept
+    title: Conceito
+    kind: narrative
+    fills: concept
+    prompt: Pergunte que tipo de personagem o jogador imagina (ideia, tom, inspirações).
+  - id: race
+    title: Raça
+    kind: choice
+    target: race
+    prompt: Sugira raças que combinem com o conceito, explicando o bônus de atributo.
+  - id: class
+    title: Classe
+    kind: choice
+    target: class
+    prompt: Sugira classes que combinem com o conceito.
+  - id: antecedent
+    title: Antecedente
+    kind: choice
+    target: antecedent
+    prompt: Sugira o antecedente que combine com o conceito.
+  - id: attributes
+    title: Atributos
+    kind: attributes
+    prompt: Sugira a distribuição priorizando o atributo principal da classe.
+  - id: skills
+    title: Perícias
+    kind: skills
+    prompt: Sugira perícias coerentes com a classe e o conceito.
+  - id: name
+    title: Nome
+    kind: narrative
+    fills: name
+    prompt: Sugira nomes coerentes com a raça e o conceito.
+  - id: background
+    title: História
+    kind: narrative
+    fills: background
+    prompt: Escreva uma história curta e ganchos de aventura.

@@ -1,0 +1,50 @@
+schema_version: 1
+id: dnd5e_srd
+name: "D&D 5ª Edição (SRD 5.1)"
+version: "0.1.0"
+license: "CC-BY-4.0"
+attribution: >-
+  Este pack usa material do System Reference Document 5.1 (SRD 5.1) da Wizards of the Coast LLC,
+  disponível em https://dnd.wizards.com/resources/systems-reference-document e licenciado sob a
+  Creative Commons Attribution 4.0 International (CC-BY-4.0).
+
+attributes:
+  - {id: str, name: Força}
+  - {id: dex, name: Destreza}
+  - {id: con, name: Constituição}
+  - {id: int, name: Inteligência}
+  - {id: wis, name: Sabedoria}
+  - {id: cha, name: Carisma}
+
+attribute_rules:
+  - method: point_buy
+    min_score: 8
+    max_score: 15
+    budget: 27
+    costs: {8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9}
+  - method: standard_array
+    array: [15, 14, 13, 12, 10, 8]
+  - method: roll # 4d6, descartando o menor dado
+    min_score: 3
+    max_score: 18
+
+# perícia: 0 = sem proficiência, 1 = proficiente
+skill_min: 0
+skill_max: 1
+# perícias ESCOLHIDAS pelo jogador (as concedidas por raça/antecedente vêm de `granted_skills`)
+skill_budget: "class_skill_choices"
+# bônus da perícia = modificador do atributo + bônus de proficiência, se proficiente
+skill_modifier: "mod + proficiency_bonus * proficient"
+
+derived:
+  - {id: mod, name: Modificador, formula: "floor((value - 10) / 2)", per_attribute: true}
+  - {id: proficiency_bonus, name: Bônus de proficiência, formula: "2"}
+  - {id: save,
+    name: Salvaguarda,
+    formula: "mod + proficiency_bonus * granted",
+    per_attribute: true,
+    flag_from: saving_throws}
+  - {id: initiative, name: Iniciativa, formula: "dex_mod"}
+  - {id: armor_class, name: CA (sem armadura), formula: "10 + dex_mod"}
+  - {id: hit_points, name: Pontos de vida (nível 1), formula: "class_hit_die + con_mod"}
+  - {id: speed, name: Deslocamento (pés), formula: "race_speed"}
